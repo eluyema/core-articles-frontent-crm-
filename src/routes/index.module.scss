@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  margin-top: 300px;
+  text-align: center;
+}
+
+.topLeft {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.topRight {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+.bottomLeft {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+
+.bottomRight {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}

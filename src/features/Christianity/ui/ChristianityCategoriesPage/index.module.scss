@@ -1,0 +1,31 @@
+.container {
+  padding: 22px 14px;
+}
+
+.category-block {
+  width: 100%;
+}
+
+.category-input-block {
+  display: flex;
+  align-items: flex-end;
+}
+
+.save-button {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+}
+
+.id-input {
+  max-width: 150px;
+}
+
+.delete-button {
+  max-width: 100px;
+}
+
+.add-button {
+  max-width: max-content;
+}
+
