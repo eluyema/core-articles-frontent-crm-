@@ -1,5 +1,5 @@
-import {api} from "../../../../../app/api";
-import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
+import {api} from "../../../../app/api";
+import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
 
 export const loginApi = async (username: string, password: string)=> {
     const { serverUrl } = getAppConfig();

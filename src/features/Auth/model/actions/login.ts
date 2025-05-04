@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {loginApi} from "../api/endpoints/login.ts";
-import {loadMyInfo} from "../api/endpoints/loadMyInfo.ts";
+import {loginApi} from "../../api/endpoints/login.ts";
+import {loadMyInfo} from "../../api/endpoints/loadMyInfo.ts";
 import {showAlert} from "../../../Alert/model/store/AlertSlice.ts";
 
 export type LoginActionParams = {username: string; password: string};

@@ -1,6 +1,6 @@
-import {api} from "../../../../../app/api";
-import {UserDetails} from "../../entities/UserDetails.ts";
-import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
+import {api} from "../../../../app/api";
+import {UserDetails} from "../../model/entities/UserDetails.ts";
+import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
 
 export const loadMyInfo = async (): Promise<UserDetails> => {
     const { serverUrl } = getAppConfig();
