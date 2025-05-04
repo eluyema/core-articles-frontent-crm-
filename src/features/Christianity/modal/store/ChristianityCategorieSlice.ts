@@ -39,9 +39,8 @@ export const christianityCategoriesSlice = createSlice({
             .addCase(saveChristianityCategoriesAction.pending, (state) => {
                 state.saveLoadingStatus = loadingStatuses.pending;
             })
-            .addCase(saveChristianityCategoriesAction.fulfilled, (state, {payload}) => {
+            .addCase(saveChristianityCategoriesAction.fulfilled, (state) => {
                 state.saveLoadingStatus = loadingStatuses.success;
-                state.categories = payload;
             })
             .addCase(saveChristianityCategoriesAction.rejected, (state) => {
                 state.saveLoadingStatus = loadingStatuses.failed;
