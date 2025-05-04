@@ -1,7 +1,6 @@
 import {api} from "../../../../app/api";
 import {ChristianityCategory} from "../../modal/entities/ChristianityCategory";
-
-const backendUrl = "http://localhost:8080";
+import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
 
 type ChristianityCategoryDto = Array<{
     id?: number;
@@ -25,7 +24,10 @@ const adaptDto = (categories: ChristianityCategory[]):ChristianityCategoryDto=>{
 }
 
 export const saveChristianityCategories = async (categories: ChristianityCategory[]): Promise<ChristianityCategory[]> => {
-    const url = backendUrl + "/api/christianity/categories/bulk";
+
+    const { serverUrl } = getAppConfig();
+
+    const url = serverUrl + "/api/christianity/categories/bulk";
     return await api.put(url, {
         json: adaptDto(categories)
     }).json();

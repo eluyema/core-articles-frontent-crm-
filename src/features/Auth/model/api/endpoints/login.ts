@@ -1,9 +1,10 @@
 import {api} from "../../../../../app/api";
+import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
 
 export const loginApi = async (username: string, password: string)=> {
-    const backendUrl = "http://localhost:8080";
+    const { serverUrl } = getAppConfig();
 
-    const url = backendUrl + "/api/auth/sign-in";
+    const url = serverUrl + "/api/auth/sign-in";
 
     const { token } = await api.post<{token: string}>(url, {json: { username, password }}).json();
 

@@ -1,7 +1,6 @@
 import {api} from "../../../../app/api";
 import {ChristianityCategory} from "../../modal/entities/ChristianityCategory";
-
-const backendUrl = "http://localhost:8080";
+import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
 
 type ChristianityCategoryDto = {
     id: number;
@@ -10,7 +9,9 @@ type ChristianityCategoryDto = {
 };
 
 export const loadChristianityCategories = async (): Promise<ChristianityCategory[]> => {
-    const url = backendUrl + "/api/christianity/categories";
+    const { serverUrl } = getAppConfig();
+
+    const url = serverUrl + "/api/christianity/categories";
     const data = await api.get<ChristianityCategoryDto[]>(url).json();
 
     return data.map((record)=> ({
