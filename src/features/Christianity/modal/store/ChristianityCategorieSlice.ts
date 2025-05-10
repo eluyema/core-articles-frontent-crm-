@@ -31,7 +31,7 @@ export const christianityCategoriesSlice = createSlice({
             })
             .addCase(loadChristianityCategoriesAction.fulfilled, (state, {payload}) => {
                 state.loadLoadingStatus = loadingStatuses.success;
-                state.categories = payload;
+                state.categories = [...payload];
             })
             .addCase(loadChristianityCategoriesAction.rejected, (state) => {
                 state.loadLoadingStatus = loadingStatuses.failed;

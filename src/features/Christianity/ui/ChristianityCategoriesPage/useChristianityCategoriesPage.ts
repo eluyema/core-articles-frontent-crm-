@@ -3,8 +3,6 @@ import {useEffect} from "react";
 import {loadingStatuses} from "../../../../shared/model/LoadingStatus.ts";
 
 export const useChristianityCategoriesPage = ()=> {
-
-
     const {
         categories,
         updateCategoryCode,

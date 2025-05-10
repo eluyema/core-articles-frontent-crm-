@@ -1,0 +1,21 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex: 1;
+}
+
+.editor {
+  padding: 20px 0;
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #b7b7b7;
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}

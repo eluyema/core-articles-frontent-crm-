@@ -1,9 +1,6 @@
 import ky from "ky";
 
 export const api = ky.create({
-    headers: {
-        'Content-Type': 'application/json'
-    },
     hooks: {
         beforeRequest: [
             (request) => {
@@ -15,7 +12,7 @@ export const api = ky.create({
         ],
         afterResponse: [
             async (_request, _options, response) => {
-                if (response.status === 401) {
+                if (response.status === 401 && window.location.pathname !== "/login") {
                     window.location.href = "/login";
                 }
                 return response;

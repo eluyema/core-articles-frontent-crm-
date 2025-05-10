@@ -1,4 +1,4 @@
-import { Box, Button, Card, Group, Stack, TextInput, Title } from "@mantine/core";
+import { Container, Button, Card, Group, Stack, TextInput, Title } from "@mantine/core";
 import { useChristianityCategoriesPage } from "./useChristianityCategoriesPage";
 import styles from "./index.module.scss";
 import loadingImage from "../../../../assets/loading-cat.gif";
@@ -18,7 +18,7 @@ export const ChristianityCategoriesPage = () => {
     } = useChristianityCategoriesPage();
 
     return (
-        <Box className={styles.container}>
+        <Container size="md" py="md">
             <Title order={2} mb="md">Категорії та підтеми</Title>
 
             {loadLoading && <img src={loadingImage} alt="Loading..." width={400}/>}
@@ -95,7 +95,7 @@ export const ChristianityCategoriesPage = () => {
                 </Button>
             </Stack>
             <Button size="lg" disabled={saveLoading || loadLoading} color="green" className={styles.saveButton} onClick={saveCategories}>Зберегти</Button>
-        </Box>
+        </Container>
     );
 };
 
