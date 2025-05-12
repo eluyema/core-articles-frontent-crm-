@@ -1,5 +1,5 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {saveChristianityCategories} from "../../api/endpoints/saveChristianityCategories.ts";
+import {saveChristianityCategories} from "../../api/endpoints/categories/saveChristianityCategories.ts";
 
 import {loadChristianityCategoriesAction} from "./loadChristianityCategories.ts";
 import {ChristianityCategory} from "../entities/ChristianityCategory.ts";

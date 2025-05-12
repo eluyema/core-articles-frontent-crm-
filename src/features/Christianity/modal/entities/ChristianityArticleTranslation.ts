@@ -1,4 +1,4 @@
-import {EditorJsContent} from "../../../ArticleEditor/model/entities/EditorJsContentl.ts";
+import {OutputData} from "@editorjs/editorjs";
 
 export interface ChristianityArticleTranslation {
     "id": string;
@@ -8,7 +8,7 @@ export interface ChristianityArticleTranslation {
     "previewImageUrl": string;
     "previewImageAlt":string;
     "previewBlurImageImageUrl": string;
-    "content": EditorJsContent;
+    "content": OutputData;
 }
 
 export interface ChristianityArticleTranslationSlim {

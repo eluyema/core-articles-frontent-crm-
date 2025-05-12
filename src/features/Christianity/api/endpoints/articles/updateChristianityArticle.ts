@@ -1,5 +1,5 @@
-import {api} from "../../../../app/api";
-import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
+import {api} from "../../../../../app/api";
+import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
 
 type UpdateChristianityArticleParams = {
     currentSlug: string;

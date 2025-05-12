@@ -1,6 +1,6 @@
-import {api} from "../../../../app/api";
-import {ChristianityCategory} from "../../modal/entities/ChristianityCategory";
-import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
+import {api} from "../../../../../app/api";
+import {ChristianityCategory} from "../../../modal/entities/ChristianityCategory.ts";
+import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
 
 type ChristianityCategoryDto = Array<{
     id?: number;

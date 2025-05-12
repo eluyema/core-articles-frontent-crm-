@@ -1,1 +1,1 @@
-export {default} from "./CreateChristianityArticleTranslationPage";
+export {default} from "./CreateChristianityArticleTranslationPage.tsx";

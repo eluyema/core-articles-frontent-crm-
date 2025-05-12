@@ -1,0 +1,1 @@
+export {default}from './ArticleTranslationMetaForm.tsx';

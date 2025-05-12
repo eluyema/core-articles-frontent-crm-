@@ -21,6 +21,7 @@ import { Route as AdminChristianityArticlesIndexImport } from './routes/admin/ch
 import { Route as AdminChristianityArticlesNewArticleImport } from './routes/admin/christianity/articles/new-article'
 import { Route as AdminChristianityArticlesSlugIndexImport } from './routes/admin/christianity/articles/$slug/index'
 import { Route as AdminChristianityArticlesSlugNewTranslationIndexImport } from './routes/admin/christianity/articles/$slug/new-translation/index'
+import { Route as AdminChristianityArticlesSlugLangIndexImport } from './routes/admin/christianity/articles/$slug/$lang/index'
 
 // Create/Update Routes
 
@@ -86,6 +87,13 @@ const AdminChristianityArticlesSlugNewTranslationIndexRoute =
   AdminChristianityArticlesSlugNewTranslationIndexImport.update({
     id: '/christianity/articles/$slug/new-translation/',
     path: '/christianity/articles/$slug/new-translation/',
+    getParentRoute: () => AdminRouteRoute,
+  } as any)
+
+const AdminChristianityArticlesSlugLangIndexRoute =
+  AdminChristianityArticlesSlugLangIndexImport.update({
+    id: '/christianity/articles/$slug/$lang/',
+    path: '/christianity/articles/$slug/$lang/',
     getParentRoute: () => AdminRouteRoute,
   } as any)
 
@@ -156,6 +164,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminChristianityArticlesSlugIndexImport
       parentRoute: typeof AdminRouteImport
     }
+    '/admin/christianity/articles/$slug/$lang/': {
+      id: '/admin/christianity/articles/$slug/$lang/'
+      path: '/christianity/articles/$slug/$lang'
+      fullPath: '/admin/christianity/articles/$slug/$lang'
+      preLoaderRoute: typeof AdminChristianityArticlesSlugLangIndexImport
+      parentRoute: typeof AdminRouteImport
+    }
     '/admin/christianity/articles/$slug/new-translation/': {
       id: '/admin/christianity/articles/$slug/new-translation/'
       path: '/christianity/articles/$slug/new-translation'
@@ -174,6 +189,7 @@ interface AdminRouteRouteChildren {
   AdminChristianityArticlesIndexRoute: typeof AdminChristianityArticlesIndexRoute
   AdminChristianityCategoriesIndexRoute: typeof AdminChristianityCategoriesIndexRoute
   AdminChristianityArticlesSlugIndexRoute: typeof AdminChristianityArticlesSlugIndexRoute
+  AdminChristianityArticlesSlugLangIndexRoute: typeof AdminChristianityArticlesSlugLangIndexRoute
   AdminChristianityArticlesSlugNewTranslationIndexRoute: typeof AdminChristianityArticlesSlugNewTranslationIndexRoute
 }
 
@@ -185,6 +201,8 @@ const AdminRouteRouteChildren: AdminRouteRouteChildren = {
   AdminChristianityCategoriesIndexRoute: AdminChristianityCategoriesIndexRoute,
   AdminChristianityArticlesSlugIndexRoute:
     AdminChristianityArticlesSlugIndexRoute,
+  AdminChristianityArticlesSlugLangIndexRoute:
+    AdminChristianityArticlesSlugLangIndexRoute,
   AdminChristianityArticlesSlugNewTranslationIndexRoute:
     AdminChristianityArticlesSlugNewTranslationIndexRoute,
 }
@@ -203,6 +221,7 @@ export interface FileRoutesByFullPath {
   '/admin/christianity/articles': typeof AdminChristianityArticlesIndexRoute
   '/admin/christianity/categories': typeof AdminChristianityCategoriesIndexRoute
   '/admin/christianity/articles/$slug': typeof AdminChristianityArticlesSlugIndexRoute
+  '/admin/christianity/articles/$slug/$lang': typeof AdminChristianityArticlesSlugLangIndexRoute
   '/admin/christianity/articles/$slug/new-translation': typeof AdminChristianityArticlesSlugNewTranslationIndexRoute
 }
 
@@ -215,6 +234,7 @@ export interface FileRoutesByTo {
   '/admin/christianity/articles': typeof AdminChristianityArticlesIndexRoute
   '/admin/christianity/categories': typeof AdminChristianityCategoriesIndexRoute
   '/admin/christianity/articles/$slug': typeof AdminChristianityArticlesSlugIndexRoute
+  '/admin/christianity/articles/$slug/$lang': typeof AdminChristianityArticlesSlugLangIndexRoute
   '/admin/christianity/articles/$slug/new-translation': typeof AdminChristianityArticlesSlugNewTranslationIndexRoute
 }
 
@@ -229,6 +249,7 @@ export interface FileRoutesById {
   '/admin/christianity/articles/': typeof AdminChristianityArticlesIndexRoute
   '/admin/christianity/categories/': typeof AdminChristianityCategoriesIndexRoute
   '/admin/christianity/articles/$slug/': typeof AdminChristianityArticlesSlugIndexRoute
+  '/admin/christianity/articles/$slug/$lang/': typeof AdminChristianityArticlesSlugLangIndexRoute
   '/admin/christianity/articles/$slug/new-translation/': typeof AdminChristianityArticlesSlugNewTranslationIndexRoute
 }
 
@@ -244,6 +265,7 @@ export interface FileRouteTypes {
     | '/admin/christianity/articles'
     | '/admin/christianity/categories'
     | '/admin/christianity/articles/$slug'
+    | '/admin/christianity/articles/$slug/$lang'
     | '/admin/christianity/articles/$slug/new-translation'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -255,6 +277,7 @@ export interface FileRouteTypes {
     | '/admin/christianity/articles'
     | '/admin/christianity/categories'
     | '/admin/christianity/articles/$slug'
+    | '/admin/christianity/articles/$slug/$lang'
     | '/admin/christianity/articles/$slug/new-translation'
   id:
     | '__root__'
@@ -267,6 +290,7 @@ export interface FileRouteTypes {
     | '/admin/christianity/articles/'
     | '/admin/christianity/categories/'
     | '/admin/christianity/articles/$slug/'
+    | '/admin/christianity/articles/$slug/$lang/'
     | '/admin/christianity/articles/$slug/new-translation/'
   fileRoutesById: FileRoutesById
 }
@@ -312,6 +336,7 @@ export const routeTree = rootRoute
         "/admin/christianity/articles/",
         "/admin/christianity/categories/",
         "/admin/christianity/articles/$slug/",
+        "/admin/christianity/articles/$slug/$lang/",
         "/admin/christianity/articles/$slug/new-translation/"
       ]
     },
@@ -339,6 +364,10 @@ export const routeTree = rootRoute
     },
     "/admin/christianity/articles/$slug/": {
       "filePath": "admin/christianity/articles/$slug/index.tsx",
+      "parent": "/admin"
+    },
+    "/admin/christianity/articles/$slug/$lang/": {
+      "filePath": "admin/christianity/articles/$slug/$lang/index.tsx",
       "parent": "/admin"
     },
     "/admin/christianity/articles/$slug/new-translation/": {

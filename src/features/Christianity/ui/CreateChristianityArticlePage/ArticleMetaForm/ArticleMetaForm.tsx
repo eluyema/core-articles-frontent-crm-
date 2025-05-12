@@ -12,11 +12,11 @@ import {
     TextInput,
     Image,
     Title,
-    Tooltip
+    Tooltip, Textarea, Combobox
 } from "@mantine/core";
 import {IconCheck, IconPhoto, IconX} from "@tabler/icons-react";
 import CountryFlag from "../../../../../shared/ui/CountryFlag";
-import {useEffect, useState} from "react";
+import ClearButton = Combobox.ClearButton;
 
 const renderLanguageSelectOption: SelectProps['renderOption'] = ({ option }) => (
     <Group flex="1" gap="xs">
@@ -43,23 +43,6 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
 
     const { form, categoryOptions, subcategoryOptions, onSubmit } = useArticleMetaForm(handleSubmitMetaForm);
 
-    const [blurPreview, setBlurPreview] = useState<string | null>(null);
-
-    useEffect(() => {
-        const loadBlurPreview  = async (preview: File | null)=>{
-            if(!form.values.previewImage) {
-                return;
-            }
-            if (preview) {
-                const blur = await generateBlurDataUrl(preview);
-                setBlurPreview(blur);
-            } else {
-                setBlurPreview(null);
-            }
-        };
-        loadBlurPreview(form.values.previewImage);
-    }, [form.values.previewImage])
-
     return <form onSubmit={onSubmit}>
         <Box mt="lg">
             <Tooltip label="Активні статті відображаються на сайті, неактивні — ні" refProp="rootRef"
@@ -84,6 +67,7 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
                 className={styles.input}
                 mt="md"
                 label="Slug"
+                description="Це має бути читаєма та унікальна частина в URL статті, за основу використовуйте назву статті. Наприклад: what-jesus-think-about-love"
                 placeholder="Введіть унікальний slug"
                 {...form.getInputProps("slug")}
                 error={form.errors.slug ?? ""}
@@ -113,7 +97,7 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
                 onChange={(value) => form.setFieldValue("subcategory", value || "")}
             />
             <Divider mt="lg" mb="lg" variant="solid" />
-            <Title size="md">Налаштування базового перекладу</Title>
+            <Title size="md">Налаштування першого перекладу статті</Title>
             <Select
                 mt="md"
                 className={styles.input}
@@ -129,6 +113,7 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
             <FileInput
                 leftSection={<IconPhoto />}
                 className={styles.input}
+                mt="lg"
                 label="Додайте зображення для прев'ю статті"
                 placeholder="Зображення прев'ю статті"
                 leftSectionPointerEvents="none"
@@ -147,17 +132,7 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
                         h={350}
                         fit="contain"
                     />
-                </Box>
-            )}
-            {true && (
-                <Box className={styles.previewImageBackground} p="sm" bg="gray.3" mt="sm" mb="sm">
-                    <Image
-
-                        alt="Прев'ю зображення"
-                        radius="md"
-                        h={350}
-                        fit="contain"
-                    />
+                    <ClearButton className={styles.clearPreviewImageButton} onClear={()=>form.setFieldValue("previewImage", null)}/>
                 </Box>
             )}
             <Text size="sm" c="dimmed" mt="xs">
@@ -168,11 +143,39 @@ const ArticleMetaForm = ({handleSubmitMetaForm}: ArticleMetaFormProps) => {
                 </Text>
                 .
             </Text>
-
-
+            <TextInput
+                className={styles.input}
+                mt="md"
+                label="Підпис до зображення"
+                description="Коротко опишіть зображення (буде відображатись в разі якщо зображення не буде з якихось причин не загружено)"
+                placeholder="Введіть назву статті"
+                {...form.getInputProps("previewImageAlt")}
+                error={form.errors.previewImageAlt ?? ""}
+            />
+            <Textarea
+                className={styles.bigInput}
+                mt="md"
+                autosize
+                minRows={2}
+                label="Назва"
+                placeholder="Введіть назву статті"
+                {...form.getInputProps("title")}
+                error={form.errors.title ?? ""}
+            />
+            <Textarea
+                className={styles.bigInput}
+                mt="md"
+                autosize
+                minRows={4}
+                label="Опис статті"
+                description="Маж бути закликаючий опис, який буде відображатись в мета тегаг для пошукового робота Google, користувач не буде бачити його на сайті"
+                placeholder="Введіть опис статті"
+                {...form.getInputProps("description")}
+                error={form.errors.description ?? ""}
+            />
         </Box>
         <Group mt="lg" justify="flex-start">
-            <Button type="submit" size="md">Зберегти</Button>
+            <Button type="submit" size="md">Перейти до редагування контента статті</Button>
         </Group>
     </form>
 };

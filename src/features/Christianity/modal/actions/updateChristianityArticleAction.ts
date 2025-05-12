@@ -1,7 +1,7 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import {showAlert} from "../../../Alert/model/store/AlertSlice.ts";
 
-import {updateChristianityArticle} from "../../api/endpoints/updateChristianityArticle.ts";
+import {updateChristianityArticle} from "../../api/endpoints/articles/updateChristianityArticle.ts";
 
 type Params = {newSlug: string; currentSlug: string; category: string; subcategory: string; active: boolean };
 

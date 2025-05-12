@@ -39,7 +39,7 @@ const ChristianityArticleCard = ({ article }:ChristianityArticleCardProps) => {
                     }
                     </Text>
                     {article.active && <a target="_blank" rel="noopener noreferrer"
-                       href={`${articleWebsiteUrl}/${translation.language}/articles/${article.category}/${article.subcategory}/${article.slug}`}><IconLink size="14px" mr="sm"/> Посилання на статтю</a>
+                       href={`${articleWebsiteUrl}/${translation.language}/articles/${article.category}/${article.subcategory}/${article.slug}`}><IconLink size="14px"/> Посилання на статтю</a>
                     }
                     <Text size="sm" color="dimmed">Доступні переклади:</Text>
                     <ul className={styles.langList}>

@@ -14,8 +14,10 @@
   border-top-right-radius: 16px;
 }
 
-.button {
+.buttonBlock {
   position: fixed;
   bottom: 20px;
   right: 20px;
+  z-index: 100;
+  width: max-content;
 }

@@ -1,7 +1,7 @@
-import {api} from "../../../../app/api";
-import {getAppConfig} from "../../../../shared/config/getAppConfig.ts";
+import {api} from "../../../../../app/api";
+import {getAppConfig} from "../../../../../shared/config/getAppConfig.ts";
 
-import {ChristianityArticleSlim} from "../../modal/entities/ChristianityArticle.ts";
+import {ChristianityArticleSlim} from "../../../modal/entities/ChristianityArticle.ts";
 
 
 export const loadChristianityArticles = async (): Promise<ChristianityArticleSlim[]> => {

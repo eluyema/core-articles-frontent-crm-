@@ -5,7 +5,7 @@ export const useAlert = () => {
     const alerts = useAppSelector(state => state.alert.alerts);
     const dispatch = useAppDispatch();
 
-    const showAlertFn = (alert: Alert): void => {
+    const showAlertFn = (alert: Omit<Alert, "id">): void => {
         dispatch(showAlert(alert))
     }
 
