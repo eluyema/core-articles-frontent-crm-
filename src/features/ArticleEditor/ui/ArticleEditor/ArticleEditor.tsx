@@ -15,7 +15,6 @@ import Marker from '@editorjs/marker';
 import CheckList from '@editorjs/checklist';
 import Delimiter from '@editorjs/delimiter';
 import InlineCode from '@editorjs/inline-code';
-import SimpleImage from '@editorjs/simple-image';
 
 import { uploadArticleImage } from '../../api/ednpoints/uploadImage.ts';
 import styles from './index.module.scss';
@@ -74,10 +73,15 @@ function ArticleEditor({
                     checklist: CheckList,
                     delimiter: Delimiter,
                     inlineCode: InlineCode,
-                    simpleImage: SimpleImage,
                     image: {
                         class: Image,
                         config: {
+                            features: {
+                                border: false,
+                                stretch: false,
+                                background: false,
+                                caption: 'optional',
+                            },
                             uploader: {
                                 async uploadByFile(file: File) {
                                     if (!ACCEPTED_IMAGE_TYPES.includes(file.type)) {

@@ -8,7 +8,12 @@ export const uploadArticleImage = async (file: File): Promise<string> => {
     formData.append("image", file); // must match @RequestParam("image")
 
     const response = await api.post(serverUrl + "/api/uploads/image", {
-        body: formData
+        body: formData,
+        retry: {
+            limit: 10,
+            methods: ['post'],
+            backoffLimit: 3000
+        }
     });
 
     const result = await response.json() as { success: number; error: string; file: { url: string;} };
