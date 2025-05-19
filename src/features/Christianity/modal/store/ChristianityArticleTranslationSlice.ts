@@ -12,6 +12,7 @@ import {
 import {
     updateChristianityArticleTranslationAction
 } from "../actions/translations/updateChristianityArticleTranslation.ts";
+import {translateArticleAction} from "../actions/translations/translateArticle.ts";
 
 export interface ChristianityArticleTranslationSlice {
     lang: string;
@@ -146,6 +147,16 @@ export const christianityArticleTranslationSlice = createSlice({
                 state.loadingStatus = loadingStatuses.success;
             })
             .addCase(deleteChristianityArticleTranslationAction.rejected, state => {
+                state.loadingStatus = loadingStatuses.failed;
+            })
+
+            .addCase(translateArticleAction.pending, state => {
+                state.loadingStatus = loadingStatuses.pending;
+            })
+            .addCase(translateArticleAction.fulfilled, state => {
+                state.loadingStatus = loadingStatuses.success;
+            })
+            .addCase(translateArticleAction.rejected, state => {
                 state.loadingStatus = loadingStatuses.failed;
             })
     }

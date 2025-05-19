@@ -17,6 +17,7 @@ import {
     deleteChristianityArticleTranslationAction
 } from "../actions/translations/deleteChristianityArticleTranslation.ts";
 import {loadChristianityArticleTranslationAction} from "../actions/translations/loadChristianityArticleTranslation.ts";
+import {translateArticleAction} from "../actions/translations/translateArticle.ts";
 
 export const useChristianityArticleTranslation = () => {
     const {article, loadedArticle, slug, lang, loadingStatus } = useAppSelector((state) => state.christianityArticleTranslationSlice);
@@ -60,6 +61,10 @@ export const useChristianityArticleTranslation = () => {
         dispatch(loadChristianityArticleTranslationAction({slug, lang}))
     }
 
+    const translateCurrentArticle = () => {
+        dispatch(translateArticleAction())
+    }
+
     return {
         slug,
         lang,
@@ -72,6 +77,7 @@ export const useChristianityArticleTranslation = () => {
         createChristianityArticleTranslation,
         editChristianityArticleTranslation,
         deleteChristianityArticleTranslation,
-        loadChristianityArticleTranslation
+        loadChristianityArticleTranslation,
+        translateCurrentArticle
     };
 };

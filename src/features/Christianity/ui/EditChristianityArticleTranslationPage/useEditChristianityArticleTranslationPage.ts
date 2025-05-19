@@ -5,7 +5,7 @@ import {useChristianityArticleTranslation} from "../../modal/hooks/useChristiani
 import {useNavigate, useParams} from "@tanstack/react-router";
 
 const useEditChristianityArticleTranslationPage = () => {
-    const { article, resetArticleTranslationState, loadChristianityArticleTranslation, editChristianityArticleTranslation, loadingStatus, setArticleTranslationData } = useChristianityArticleTranslation();
+    const { article, resetArticleTranslationState, translateCurrentArticle, loadChristianityArticleTranslation, editChristianityArticleTranslation, loadingStatus, setArticleTranslationData } = useChristianityArticleTranslation();
     const { slug, lang } = useParams({ strict: false })
     const navigate = useNavigate({ from: `/admin/christianity/articles/$slug/$lang` });
 
@@ -38,7 +38,7 @@ const useEditChristianityArticleTranslationPage = () => {
         }).catch(()=>{});
     };
 
-    return { slug, article, loading, editArticle, syncContentData,};
+    return { slug, article, loading, editArticle, syncContentData, translateCurrentArticle};
 }
 
 export default useEditChristianityArticleTranslationPage;

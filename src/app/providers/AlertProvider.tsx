@@ -14,7 +14,7 @@ const AlertProvider = ({ children }: PropsWithChildren) => {
                     position: 'fixed',
                     top: 16,
                     right: 16,
-                    zIndex: 1000,
+                    zIndex: 99999999,
                     maxWidth: 400,
                 }}
             >

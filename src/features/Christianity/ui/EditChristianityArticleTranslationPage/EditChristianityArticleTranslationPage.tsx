@@ -14,7 +14,7 @@ enum EditArticleTranslationSteps {
 }
 
 const EditChristianityArticleTranslationPage = () => {
-    const { editArticle, loading, article, slug, syncContentData} = useEditChristianityArticleTranslationPage();
+    const { editArticle, loading, article, slug, translateCurrentArticle, syncContentData} = useEditChristianityArticleTranslationPage();
     const [currentStep, setCurrentStep] = useState<EditArticleTranslationSteps>(EditArticleTranslationSteps.ARTICLE_META);
 
     const handleSubmitMetaForm = () => {
@@ -24,8 +24,11 @@ const EditChristianityArticleTranslationPage = () => {
     return <div className={styles.container}>
         <Container className={styles.formContainer} size="md" py="md">
             <Button mt="md" mb="sm" variant="outline" component={Link} to={`/admin/christianity/articles/${slug}`}>Повернутись до статті</Button>
-            <Title mb="sm">Редагування перекладу статті <img src={googleTranslateIcon} height={30}
-                                                             alt="зображення гугл перекладача"/></Title>
+            <div className={styles.header}>
+                <Title mb="sm">Редагування перекладу статті <img src={googleTranslateIcon} height={30}
+                                                                 alt="зображення гугл перекладача"/></Title>
+                <button className={styles.btnGrad} onClick={translateCurrentArticle} disabled={loading}>Перекласти на інші мови з допомоги AI</button>
+            </div>
             <Stepper active={currentStep} onStepClick={setCurrentStep} allowNextStepsSelect={false}>
                 <Stepper.Step
                     label="Перший крок"
