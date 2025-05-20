@@ -16,6 +16,8 @@ const useEditChristianityArticleTranslationPage = () => {
     }
 
     useEffect(() => {
+        resetArticleTranslationState();
+
         return () => {
             resetArticleTranslationState()
         }
