@@ -19,8 +19,9 @@ const ChristianityArticleCard = ({ article }:ChristianityArticleCardProps) => {
         <Card shadow="sm" padding="lg" radius="md" withBorder>
             {translation ? (
                 <>
-                    <Card.Section>
+                    <Card.Section className={styles.imageBlock}>
                         <Image
+                            className={styles.image}
                             src={translation.previewImageUrl}
                             alt={translation.previewImageAlt}
                             height={160}

@@ -10,6 +10,7 @@ import CountryFlag from "../../../../shared/ui/CountryFlag";
 import EditArticleForm from "./EditArticleForm";
 import DeleteArticleModal from "./DeleteArticleModal";
 import articleIcon from "../../../../assets/article.png";
+import styles from './index.module.scss';
 
 const EditChristianityArticlePage = () => {
 
@@ -50,8 +51,9 @@ const EditChristianityArticlePage = () => {
                 {!!article && article.translations.map((translation) => (
                     <Grid.Col span={{ base: 12, sm: 6, md: 6 }} key={translation.id}>
                         <Card key={translation.id} shadow="sm" padding="lg" radius="md" withBorder>
-                            <Card.Section>
+                            <Card.Section className={styles.imageBlock}>
                                 <Image
+                                    className={styles.image}
                                     src={translation.previewImageUrl}
                                     alt={translation.previewImageAlt}
                                     height={160}
