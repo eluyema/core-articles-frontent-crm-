@@ -10,5 +10,7 @@ export const translateArticle = async (data: TranslateArticleParams) => {
     const { serverUrl } = getAppConfig();
 
     const url = serverUrl + `/api/christianity/translations/${data.slug}/${data.language}/translateAll`;
-    await api.post(url).json();
+    await api.post(url, {
+        timeout: false,
+    }).json();
 };
