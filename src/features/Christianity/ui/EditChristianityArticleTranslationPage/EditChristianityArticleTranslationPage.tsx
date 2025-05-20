@@ -5,7 +5,7 @@ import {useState} from "react";
 import styles from './index.module.scss'
 import ArticleTranslationMetaForm from "./ArticleTranslationMetaForm";
 import useEditChristianityArticleTranslationPage from "./useEditChristianityArticleTranslationPage.ts";
-import translatorIcon from '../../../../assets/googleTranslateIcon.png';
+import translatorIcon from '../../../../assets/googleTranslateIcon.svg';
 
 enum EditArticleTranslationSteps {
     ARTICLE_META = 0,
