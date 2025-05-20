@@ -5,6 +5,7 @@ import {useState} from "react";
 import styles from './index.module.scss'
 import ArticleTranslationMetaForm from "./ArticleTranslationMetaForm";
 import useEditChristianityArticleTranslationPage from "./useEditChristianityArticleTranslationPage.ts";
+import translatorIcon from '../../../../assets/googleTranslateIcon.png';
 
 enum EditArticleTranslationSteps {
     ARTICLE_META = 0,
@@ -24,7 +25,7 @@ const EditChristianityArticleTranslationPage = () => {
         <Container className={styles.formContainer} size="md" py="md">
             <Button mt="md" mb="sm" variant="outline" component={Link} to={`/admin/christianity/articles/${slug}`}>Повернутись до статті</Button>
             <div className={styles.header}>
-                <Title mb="sm">Редагування перекладу статті <img src="/googleTranslateIcon.png" height={30}
+                <Title mb="sm">Редагування перекладу статті <img src={translatorIcon} height={30}
                                                                  alt="зображення гугл перекладача"/></Title>
                 <button className={styles.btnGrad} onClick={translateCurrentArticle} disabled={loading}>Перекласти на інші мови з допомоги AI</button>
             </div>
